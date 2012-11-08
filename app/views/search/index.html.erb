@@ -1,0 +1,22 @@
+<h1>SEARCH your classmate by expertise</h1>
+<p>examples: CSS | HTML | Lean Startup | Ruby on Rails | OmniAuth </p>  
+
+<body>
+
+
+<!-- Search bar -->
+<form name="simple_bar" method="get" action=<%='/results'%>>
+  <table width="400" border="1" cellpadding="5">
+    <tr>
+      <td>
+        <input type="hidden" name="search_view" value="grid">
+        I have questions in:<input type="text" name="search_string" size="30" maxlength="50"><input type="submit" value="Search">
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- Search bar -->
+
+<br />
+</body>
+<%= link_to 'See all students', users_path %>
