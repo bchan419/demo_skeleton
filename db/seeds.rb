@@ -16,10 +16,25 @@ users = [
     :tsl_class => "Fall 2012",
     :user_name => "bchan"
   },
-  { :first_name => "Will", :last_name => "Richman", 
+  {  :first_name => "Will", :last_name => "Richman", 
      :email => "williamrichman@gmail.com", 
      :tsl_class => "Fall 2012",
-     :user_name => "will_richman"
+     :user_name => "wrichman"
+  },
+  {  :first_name => "Fahad", :last_name => "Sami", 
+     :email => "fahad.sami@gmail.com", 
+     :tsl_class => "Fall 2012",
+     :user_name => "fsami"
+  },
+  {  :first_name => "Ashley", :last_name => "Wrobel", 
+     :email => "ashwrobel@gmail.com", 
+     :tsl_class => "Fall 2012",
+     :user_name => "awrobel"
+  },
+  {  :first_name => "Travis", :last_name => "Topham", 
+     :email => "travis.topham@gmail.com", 
+     :tsl_class => "Fall 2012",
+     :user_name => "t_topham"
   }
 ]
 
@@ -30,20 +45,40 @@ expertises = [
   { :tags => "Ruby on Rails" },
   { :tags => "OmniAuth" },
   { :tags => "Keynote" },
-  { :tags => "Financial Modeling" },
-  { :tags => "Lean Start-up" }
+  { :tags => "Financial Analysis" },
+  { :tags => "Lean Startup" },
+  { :tags => "Wireframe" },
+  { :tags => "UX Design" },
+  { :tags => "Illustrator" },
+  { :tags => "Graphics Design" },
+  { :tags => "Country Music" }
 ]
 
-
 user_skillsets = [
-  { :user_name => "bchan", :tags => "Lean Start-up" }, 
+  { :user_name => "bchan", :tags => "Lean Startup" }, 
   { :user_name => "bchan", :tags => "OmniAuth" }, 
   { :user_name => "bchan", :tags => "Ruby on Rails" }, 
-  { :user_name => "will_richman", :tags => "Financial Modeling" }, 
-  { :user_name => "will_richman", :tags => "JavaScript" }, 
-  { :user_name => "will_richman", :tags => "Ruby on Rails" },
-  { :user_name => "will_richman", :tags => "CSS" },
-  { :user_name => "will_richman", :tags => "HTML" }
+  
+  { :user_name => "wrichman", :tags => "Financial Analysis" }, 
+  { :user_name => "wrichman", :tags => "JavaScript" }, 
+  { :user_name => "wrichman", :tags => "Ruby on Rails" },
+  { :user_name => "wrichman", :tags => "CSS" },
+  { :user_name => "wrichman", :tags => "HTML" },
+
+  { :user_name => "fsami", :tags => "Financial Analysis" }, 
+  { :user_name => "fsami", :tags => "Ruby on Rails" },
+  
+  { :user_name => "awrobel", :tags => "HTML" }, 
+  { :user_name => "awrobel", :tags => "CSS" }, 
+  { :user_name => "awrobel", :tags => "Wireframe" }, 
+  { :user_name => "awrobel", :tags => "UX Design" }, 
+  
+  { :user_name => "t_topham", :tags => "HTML" }, 
+  { :user_name => "t_topham", :tags => "CSS" }, 
+  { :user_name => "t_topham", :tags => "Illustrator" }, 
+  { :user_name => "t_topham", :tags => "Graphics Design" }, 
+  { :user_name => "t_topham", :tags => "Ruby on Rails" }, 
+  { :user_name => "t_topham", :tags => "Country Music" }
 ]
 
 User.create users
@@ -51,6 +86,8 @@ Expertise.create expertises
 
 user_skillsets.each do |user_skillset|
   u = User.find_by_user_name(user_skillset[:user_name])
-  t = Expertise.find_by_tags(user_skillset[:tags])
-  Skillset.create :user_id => u.id, :expertise_id => t.id
+  e = Expertise.find_by_tags(user_skillset[:tags])
+  Skillset.create :user_id => u.id, :expertise_id => e.id
 end
+
+

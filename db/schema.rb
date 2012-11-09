@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121108213716) do
 
-  create_table "expertise_users", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "expertise_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "expertises", :force => true do |t|
     t.string   "tags"
     t.datetime "created_at", :null => false

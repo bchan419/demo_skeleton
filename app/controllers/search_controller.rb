@@ -8,8 +8,12 @@ class SearchController < ApplicationController
     @search_string = params[:search_string]
     
     @expertise = Expertise.find_by_tags(params[:search_string])
-    @matched_users = @expertise.users
-    
+
+    if @expertise.nil?
+      redirect_to root_url, notice: "Sorry, nobody has such skillset"
+    else 	
+      @matched_users = @expertise.users
+    end
   end
 
 end

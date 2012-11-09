@@ -15,8 +15,8 @@
   <%= @user.tsl_class %>
 </p>
 
+<b>Expertise:</b>
 <ul>
-  <b>Expertise:</b>
   <% @user.skillsets.each do |skill| %>
     <li><%= Expertise.find_by_id(skill.expertise_id).tags %></li>
   <% end %>

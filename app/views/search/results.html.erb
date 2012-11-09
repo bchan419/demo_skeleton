@@ -1,6 +1,4 @@
 <h1>Search string:</h1>
-<%= @matched_users %>
-
 
 <table>
   <tr>
@@ -11,8 +9,19 @@
     <th></th>
     <th></th>
   </tr>
+
+<% @matched_users.each do |user| %>
+  <tr>
+    <td><%= user.tsl_class %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Back to Search', '/' %>
